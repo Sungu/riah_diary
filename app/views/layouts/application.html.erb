@@ -66,7 +66,7 @@
         <%= image_tag(current_user.image, size: '50x50', style:'border-radius:3px; margin-left: 79px;margin-bottom:10px;') if current_user.image %>
         <%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?" }, style: "margin-bottom: 15px;text-decoration:none;color: rgba(255, 255, 255, 0.56);font-weight: bold;"%>
       <% else %>
-        <a href="/users/auth/facebook"><img src="/assets/login.png" width="170" height="50" alt="icons" style="border-radius: 5px;margin-bottom: 35px;"/></a>
+        <a href="/users/auth/facebook"><img src="https://s3.ap-northeast-2.amazonaws.com/sungurails/login.png" width="170" height="50" alt="icons" style="border-radius: 5px;margin-bottom: 35px;"/></a>
       <% end %>
     </header>
     <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
