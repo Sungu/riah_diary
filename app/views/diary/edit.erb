@@ -1,0 +1,37 @@
+<main class="mdl-layout__content mdl-color--grey-100">
+  <div style="margin-left:40px;margin-right:40px;">
+    <h1 style="margin-bottom: 40px;">글작성</h1>
+      <%= form_tag "/diary/update/#{@post.id}", method: "post" do %>
+        <div class="form-group">
+          <label>Project / Course Title</label>
+          <input name="title" type="text" class="form-control" value="<%= @post.title %>">
+        </div>
+        <div class="form-group">
+          <label>Plan</label>
+          <textarea name="plan" class="form-control" rows="7" ><%= @post.plan %></textarea>
+        </div>
+        <div class="form-group">
+          <label>Research</label>
+          <textarea name="research" class="form-control" rows="7"><%= @post.research %></textarea>
+        </div>
+        <div class="form-group">
+          <label>Act</label>
+          <textarea name="act" class="form-control" rows="7" ><%= @post.act %></textarea>
+        </div>
+        <div class="form-group">
+          <label>Observe</label>
+          <textarea name="observe_thing" class="form-control" rows="7" ><%= @post.observe_thing %></textarea>
+        </div>
+        <div class="form-group">
+          <label>Evaluate</label>
+          <textarea name="evaluate" class="form-control" rows="7"><%= @post.evaluate %></textarea>
+        </div>
+        <div class="form-group">
+          <label>Reflect</label>
+          <textarea name="reflect" class="form-control" rows="7" ><%= @post.reflect %></textarea>
+        </div>
+        <button style="margin-bottom: 30px; margin-top: 20px;" class="btn btn-default">작성하기</button>
+      <% end %>
+    </div>
+  </div>
+</main>

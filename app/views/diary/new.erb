@@ -1,0 +1,37 @@
+<main class="mdl-layout__content mdl-color--grey-100">
+  <div style="margin-left:40px;margin-right:40px;">
+    <h1 style="margin-bottom: 40px;">글작성</h1>
+      <%= form_tag "/diary/create", method: "post" do %>
+        <div class="form-group">
+          <label>Project / Course Title</label>
+          <input name="title" type="text" class="form-control" placeholder="하고자 하는 일의 제목을 적어주세요">
+        </div>
+        <div class="form-group">
+          <label>Plan</label>
+          <textarea name="plan" class="form-control" rows="7" placeholder="왜, 이 일을 하고자 했는가요? 이 일의 목표는 무엇인가요?"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Research</label>
+          <textarea name="research" class="form-control" rows="7" placeholder="어디서 어떤 것을 조사했는가요?"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Act</label>
+          <textarea name="act" class="form-control" rows="7" placeholder="당신이 실제로 했던 일은 무엇인가요?"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Observe</label>
+          <textarea name="observe_thing" class="form-control" rows="7" placeholder="당신의 행동의 결과에서 어떤 것을 발견할 수 있는가요?"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Evaluate</label>
+          <textarea name="evaluate" class="form-control" rows="7" placeholder="처음의 목표와 비교하여 행동의 결과는 어떻게 평가할 수 있는가요?"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Reflect</label>
+          <textarea name="reflect" class="form-control" rows="7" placeholder="당신이 했던 모든 단계(Plan-Research-Act-Observe-Evaluate)에서 당신은 어떠 했나요? 어떤 것을 어떻게 하면 더 발전 시킬 수 있을까요?"></textarea>
+        </div>
+        <button style="margin-bottom: 30px; margin-top: 20px;" class="btn btn-default">작성하기</button>
+      <% end %>
+    </div>
+  </div>
+</main>

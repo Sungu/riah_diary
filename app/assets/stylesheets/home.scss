@@ -1,0 +1,12 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Users index */
+.background-univ{
+ background:url('https://www.opencollege.kr/assets/2016_cover_main9_blurred-6fe24a49f3baba554bcbd218439326fb.jpg') no-repeat center center;
+ /* Ensure the html element always takes up the full height of the browser window */
+	min-height:100%;
+
+	/* The Magic */
+	background-size:cover;
+}
