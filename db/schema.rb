@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424041047) do
+ActiveRecord::Schema.define(version: 20160504075404) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20160424041047) do
     t.text     "observe_thing"
     t.text     "evaluate"
     t.text     "reflect"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "is_private",    default: false
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

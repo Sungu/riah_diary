@@ -9,7 +9,6 @@ class CreatePosts < ActiveRecord::Migration
       t.text :observe_thing
       t.text :evaluate
       t.text :reflect
-      t.boolean :is_private
 
       t.timestamps null: false
     end
