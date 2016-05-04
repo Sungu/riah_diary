@@ -1,5 +1,7 @@
 class DiaryController < ApplicationController
-  before_action:authenticate_user!, only: [:new,:create,:show,:edit,:update,:destroy,:recent]
+  before_action :authenticate_user!, only: [:new,:create,:show,:edit,:update,:destroy,:recent]
+  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
+  before_action :correct_user, only: [ :edit, :update, :destroy ]
   
   def index
     @post = current_user.posts
@@ -7,7 +9,7 @@ class DiaryController < ApplicationController
   end
 
   def recent
-    @psot = Post.public.order('created_at DESC')
+    @posts = Post.is_public.order('created_at DESC')
   end
 
 
@@ -31,44 +33,51 @@ class DiaryController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])
+    if @post.is_private? && current_user != @post.user
+      redirect_to root_path and return
+    end
     @page_title = "글 보기"
   end
 
   def edit
-    @post = Post.find(params[:id])
     @page_title = "글 수정"
   end
   
   def update
-    a = Post.find(params[:id])
-    if a.user_id == current_user.id
-      a.title = params[:title]
-      a.plan = params[:plan]
-      a.research = params[:research]
-      a.act = params[:act]
-      a.observe_thing = params[:observe_thing]
-      a.evaluate =  params[:evaluate]
-      a.reflect = params[:reflect]
-      a.is_private = params[:is_private]
-      a.save
+    if @post.user_id == current_user.id
+      @post.title = params[:title]
+      @post.plan = params[:plan]
+      @post.research = params[:research]
+      @post.act = params[:act]
+      @post.observe_thing = params[:observe_thing]
+      @post.evaluate =  params[:evaluate]
+      @post.reflect = params[:reflect]
+      @post.is_private = params[:is_private]
+      @post.save
       #flash[:notice] = "글이 수정 되었습니다"
-      redirect_to "/diary/show/#{a.id}"
+      redirect_to "/diary/show/#{@post.id}"
     else
       #flash[:error] = "잘못된 접근입니다."
-      redirect_to "/diary/show/#{a.id}"
+      redirect_to "/diary/show/#{@post.id}"
     end
   end
   
   def delete
-    a=Post.find(params[:id])
-    if a.user_id == current_user.id
-      a.destroy
-      #flash[:notice] = "글을 지웠습니다"
-      redirect_to '/'
-    else
+    @post.destroy
+    #flash[:notice] = "글을 지웠습니다"
+    redirect_to root_path
+  end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def correct_user
+    unless current_user == @post.user
       flash[:error] = "잘못된 접근입니다."
-      redirect_to "/diary/show/#{a.id}"
+      redirect_to root_path
     end
   end
   

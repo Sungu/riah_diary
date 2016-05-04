@@ -1,11 +1,11 @@
 <main class="mdl-layout__content mdl-color--grey-100">
   <ul class="list-group" style="margin-top:20px;">
     <% @users.each do |user| %>
-      <li class="list-group-item" style="margin-left:20px;margin-right:20px;margin-bottom:20px">
-        <%= image_tag(user.image, size: '50x50', style:'border-radius:3px;') %>
-        <%= user.name %>
-        <a style="float: right;margin-top:8px;margin-right:10px"href="/home/user_diary/<%=user.id%>" class='btn btn-default'>다이어리 보기</a>
-      </li>
+        <li class="list-group-item" style="margin-left:20px;margin-right:20px;margin-bottom:20px">
+          <%= image_tag(user.image, size: '50x50', style:'border-radius:3px;') %>
+          <%= user.name %>
+          <a style="float: right;margin-top:8px;margin-right:10px"href="/home/user_diary/<%=user.id%>" class='btn btn-default'>다이어리 보기</a>
+        </li>
     <% end %>
   </ul>
 </main>

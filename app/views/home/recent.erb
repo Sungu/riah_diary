@@ -1,1 +1,23 @@
-hello world
+<main class="mdl-layout__content mdl-color--grey-100">
+  <ul class="list-group" style="margin-top:20px;">
+    <% @posts.each do |post| %>
+        <a class="recent_post" style=""href="/diary/show/<%=post.id%>">
+        <li class="list-group-item" style="margin-left:20px;margin-right:20px;margin-bottom:20px">
+          <%= image_tag(post.user.image, size: '50x50', style:'border-radius:3px;') %>
+          <%= (post.title.size>13) ? post.title.first(13)+"..." : post.title %>
+        </li>
+        </a>
+    <% end %>
+  </ul>
+</main>
+
+
+
+<script>
+$(".click").mouseover(function(){
+  alert("hello")
+
+})
+
+
+</script>
