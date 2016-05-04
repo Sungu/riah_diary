@@ -18,7 +18,8 @@ class DiaryController < ApplicationController
                         act: params[:act],
                         observe_thing: params[:observe_thing],
                         evaluate: params[:evaluate],
-                        reflect: params[:reflect])
+                        reflect: params[:reflect],
+                        is_private: params[:is_private])
     #flash[:notice] = "글이 작성 되었습니다"
     redirect_to "/diary/show/#{diary.id}"
   end
@@ -43,6 +44,7 @@ class DiaryController < ApplicationController
       a.observe_thing = params[:observe_thing]
       a.evaluate =  params[:evaluate]
       a.reflect = params[:reflect]
+      a.is_private = params[:is_private]
       a.save
       #flash[:notice] = "글이 수정 되었습니다"
       redirect_to "/diary/show/#{a.id}"
