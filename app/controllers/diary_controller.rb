@@ -1,10 +1,16 @@
 class DiaryController < ApplicationController
-  before_action:authenticate_user!, only: [:new,:create,:show,:edit,:update,:destroy]
+  before_action:authenticate_user!, only: [:new,:create,:show,:edit,:update,:destroy,:recent]
   
   def index
     @post = current_user.posts
     @page_title = "나의 글보기"
   end
+
+  def recent
+    @psot = Post.public.order('created_at DESC')
+  end
+
+
 
   def new
     @page_title = "글 작성"
