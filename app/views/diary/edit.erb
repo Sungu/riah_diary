@@ -2,6 +2,29 @@
   <div style="margin-left:40px;margin-right:40px;">
     <h1 style="margin-bottom: 40px;">글작성</h1>
       <%= form_tag "/diary/update/#{@post.id}", method: "post" do %>
+        <% if @post.is_private %>
+          <div class="radio">
+            <label>
+              <input type="radio" name="is_private" id="optionsRadios1" value="false"> 공개
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="is_private" id="optionsRadios2" value="true" checked> 비공개
+            </label>
+          </div>
+        <% else %>
+          <div class="radio">
+            <label>
+              <input type="radio" name="is_private" id="optionsRadios1" value="false" checked> 공개
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="is_private" id="optionsRadios2" value="true"> 비공개
+            </label>
+          </div>
+        <% end %>
         <div class="form-group">
           <label>Project / Course Title</label>
           <input name="title" type="text" class="form-control" value="<%= @post.title %>">
@@ -30,29 +53,6 @@
           <label>Reflect</label>
           <textarea name="reflect" class="form-control" rows="7" ><%= @post.reflect %></textarea>
         </div>
-        <% if @post.is_private %>
-          <div class="radio">
-            <label>
-              <input type="radio" name="is_private" id="optionsRadios1" value="false"> 공개
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="is_private" id="optionsRadios2" value="true" checked> 비공개
-            </label>
-          </div>
-        <% else %>
-          <div class="radio">
-            <label>
-              <input type="radio" name="is_private" id="optionsRadios1" value="false" checked> 공개
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="is_private" id="optionsRadios2" value="true"> 비공개
-            </label>
-          </div>
-        <% end %>
         <button style="margin-bottom: 30px; margin-top: 20px;" class="btn btn-default">작성하기</button>
       <% end %>
     </div>

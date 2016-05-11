@@ -22,12 +22,14 @@
                   <% block.call day, sorted_events.fetch(day, []) %>
                 <% end %>
               <% else %>
-                <% block.call day, sorted_events.fetch(day, []) %>
+                <% if start_date.month == day.month %>
+                  <%= day.month %>월 <%= day.day %>일
                 
-                <% @post.each do |a| %>
-                  <% if "#{a.created_at.year}-#{a.created_at.month}-#{a.created_at.day}" == "#{day.year}-#{day.month}-#{day.day}" %>
-                    <br>
-                    <a href="/diary/show/<%= a.id %>" class='btn btn-default'>다이어리 보기</a>
+                  <% @post.each do |a| %>
+                    <% if "#{a.created_at.year}-#{a.created_at.month}-#{a.created_at.day}" == "#{day.year}-#{day.month}-#{day.day}" %>
+                      <br>
+                      <a href="/diary/show/<%= a.id %>" class='btn btn-default'>Diary</a>
+                    <% end %>
                   <% end %>
                 <% end %>
               <% end %>

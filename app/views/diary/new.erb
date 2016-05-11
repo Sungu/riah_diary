@@ -2,6 +2,16 @@
   <div style="margin-left:40px;margin-right:40px;">
     <h1 style="margin-bottom: 40px;">글작성</h1>
       <%= form_tag "/diary/create", method: "post" do %>
+        <div class="radio">
+          <label>
+            <input type="radio" name="is_private" id="optionsRadios1" value="false" checked> 공개
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="is_private" id="optionsRadios2" value="true"> 비공개
+          </label>
+        </div>
         <div class="form-group">
           <label>Project / Course Title</label>
           <input name="title" type="text" class="form-control" placeholder="하고자 하는 일의 제목을 적어주세요">
@@ -29,16 +39,6 @@
         <div class="form-group">
           <label>Reflect</label>
           <textarea name="reflect" class="form-control" rows="7" placeholder="당신이 했던 모든 단계(Plan-Research-Act-Observe-Evaluate)에서 당신은 어떠 했나요? 어떤 것을 어떻게 하면 더 발전 시킬 수 있을까요?"></textarea>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="is_private" id="optionsRadios1" value="false" checked> 공개
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="is_private" id="optionsRadios2" value="true"> 비공개
-          </label>
         </div>
         <button style="margin-bottom: 30px; margin-top: 20px;" class="btn btn-default">작성하기</button>
       <% end %>
