@@ -1,7 +1,7 @@
 class DiaryController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:create,:show,:edit,:update,:destroy,:recent]
-  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
-  before_action :correct_user, only: [ :edit, :update, :destroy ]
+  before_action :authenticate_user!, only: [:new,:create,:show,:edit,:update,:delete,:recent]
+  before_action :set_post, only: [ :show, :edit, :update, :delete ]
+  before_action :correct_user, only: [ :edit, :update, :delete ]
   
   def index
     @post = current_user.posts
@@ -65,7 +65,7 @@ class DiaryController < ApplicationController
   def delete
     @post.destroy
     #flash[:notice] = "글을 지웠습니다"
-    redirect_to root_path
+    redirect_to :controller => 'diary', :action => 'index'
   end
 
   private

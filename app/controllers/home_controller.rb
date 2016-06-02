@@ -2,6 +2,9 @@ class HomeController < ApplicationController
   def index
   end
 
+  def today
+    @posts = Post.where("created_at >= ?", Time.zone.now.beginning_of_day).where(:is_private => false).order("created_at DESC")
+  end
 
   def recent
     @posts = Post.where(:is_private => false).order("created_at DESC").limit(10)

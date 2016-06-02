@@ -3,21 +3,13 @@
     <% @posts.each do |post| %>
         <a class="recent_post" style=""href="/diary/show/<%=post.id%>">
         <li class="list-group-item" style="margin-left:20px;margin-right:20px;margin-bottom:20px">
-          <%= image_tag(post.user.image, size: '50x50', style:'border-radius:3px;') %>
-          <%= (post.title.size>13) ? post.title.first(13)+"..." : post.title %>
+          <%= image_tag(post.user.image, size: '40x40', style:'border-radius:3px;') %>
+          <%= (post.title.size>40) ? post.title.first(40)+"..." : post.title %>
+          <a style="float: right;margin-top:8px;margin-right:10px"><%= post.created_at.to_date%></a>
+          <a style="float: left; margin-bottom: 3px; padding-top: 5px"></a>
         </li>
         </a>
     <% end %>
   </ul>
 </main>
 
-
-
-<script>
-$(".click").mouseover(function(){
-  alert("hello")
-
-})
-
-
-</script>

@@ -56,8 +56,8 @@
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
   <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
     <div class="mdl-layout__header-row" style="background-color: #4285F4;">
+
       <span class="mdl-layout-title" style="color:white"><%= render_page %></span>
-      <div class="mdl-layout-spacer"></div>
     </div>
   </header>
   <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
@@ -72,9 +72,10 @@
     <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
       <a class="mdl-navigation__link" href="/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
       <% if user_signed_in? %>
-        <a class="mdl-navigation__link" href="/diary/new"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">edit</i>글쓰기</a>
-        <a class="mdl-navigation__link" href="/diary/index"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>나의 글보기</a>
-        <a class="mdl-navigation__link" href="/home/user"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>친구 글보기</a>
+          <a class="mdl-navigation__link" href="/diary/new"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">edit</i>글쓰기</a>
+          <a class="mdl-navigation__link" href="/diary/index"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>나의 글보기</a>
+          <a class="mdl-navigation__link" href="/home/today"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">schedule</i>오늘의 글보기</a>
+          <a class="mdl-navigation__link" href="/home/user"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>친구 글보기</a>
           <a class="mdl-navigation__link" href="/home/recent"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">sort</i>최신 글보기</a>
       <% end %>
       <div class="mdl-layout-spacer"></div>
