@@ -1,11 +1,35 @@
 <main class="mdl-layout__content mdl-color--grey-100">
   <ul id="list" class="list-group" style="margin-top:20px;">
-    <% @posts.each do |post| %>
+    <% @posts.where("created_at >= ?", Time.zone.now.beginning_of_day).where(:is_private => false).order("created_at DESC").each do |post| %>
           <li class="list-group-item list-<%=post.id%>" style="margin-left:20px;margin-right:20px;margin-bottom:20px">
             <a class="recent_post" style="" href="/diary/show/<%=post.id%>"></a>
             <%= image_tag(post.user.image, size: '50x50', style:'border-radius:3px;') %>
-            <%= (post.title.size>40) ? post.title.first(40)+"..." : post.title %>
-            <a style="float: right;margin-top:8px;margin-right:10px"><%= post.created_at.to_date%></a>
+            <%=(post.title.size>40) ? post.title.first(40)+"..." : post.title %>
+            <table class="table_list" class="table table-hover table-mc-light-blue">
+              <tbody>
+              <tr>
+                <td style="text-align: left;">Plan</td>
+                <td style="text-align:left"><%= simple_format(post.plan) %></td>
+              <tr>
+                <td style="text-align: left;">Research</td>
+                <td style="text-align:left"><%= simple_format(post.research) %></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Act</td>
+                <td style="text-align:left"><%= simple_format(post.act) %></td>
+              <tr>
+                <td style="text-align: left;">Observe</td>
+                <td style="text-align:left"><%= simple_format(post.observe_thing) %></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Evaluate</td>
+                <td style="text-align:left"><%= simple_format(post.evaluate) %></td>
+              <tr>
+                <td style="text-align: left;">Reflect</td>
+                <td style="text-align:left"><%= simple_format(post.reflect) %></td>
+              </tr>
+              </tbody>
+            </table>
           </li>
 
     <% end %>
@@ -14,11 +38,18 @@
 
 <script>
   $('li').click(function() {
-    num = $(this).index()
+
+    num = $(this).index();
     $(this).fadeOut(1000, function () {
       $("#list li:eq(0)").before($("#list li:eq(" + num + ")"));
+      $(".table_list").css(
+          "display","none"
+      )
+      $(this).find(".table_list").css(
+        "display","block"
+      )
+      $("#list li:eq(0)").scrollTop(0);
       $(this).fadeIn(1000);
-
     });
   });
 </script>
