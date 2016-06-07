@@ -1,16 +1,19 @@
 <main class="mdl-layout__content mdl-color--grey-100">
-  <div style="margin-left:40px;margin-right:40px;">
-    <h1 style="margin-bottom: 40px;">글작성</h1>
+  <div style="margin-left:40px;margin-right:40px;margin-top:20px;">
+    <!--<h1 style="margin-bottom: 40px;">글작성</h1>-->
       <%= form_tag "/diary/create", method: "post" do %>
-        <div class="radio">
-          <label>
-            <input type="radio" name="is_private" id="optionsRadios1" value="false" checked> 공개
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="is_private" id="optionsRadios2" value="true"> 비공개
-          </label>
+        <div class="form-group">
+          <label>Private or Public</label>
+          <div class="radio">
+            <label>
+              <input type="radio" name="is_private" id="optionsRadios1" value="false" checked> 공개
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="is_private" id="optionsRadios2" value="true"> 비공개
+            </label>
+          </div>
         </div>
         <div class="form-group">
           <label>Project / Course Title</label>

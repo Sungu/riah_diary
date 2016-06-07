@@ -4,8 +4,7 @@
         <a class="recent_post" style=""href="/diary/show/<%=post.id%>">
         <li class="list-group-item" style="margin-left:20px;margin-right:20px;margin-bottom:20px">
           <%= image_tag(post.user.image, size: '40x40', style:'border-radius:3px;') %>
-          <%= post.user.name %>
-          <b>  Title: <%= (post.title.size>40) ? post.title.first(40)+"..." : post.title %></b>
+          <%= post.user.name %>           <%= (post.title.size>40) ? post.title.first(40)+"..." : post.title %>
           <p style="float: right;margin-top:8px;margin-right:10px"><%= post.created_at.to_date%></p>
         </li>
         </a>

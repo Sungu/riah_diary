@@ -4,10 +4,12 @@ class HomeController < ApplicationController
 
   def today
     @posts = Post.where("created_at >= ?", Time.zone.now.beginning_of_day).where(:is_private => false).order("created_at DESC")
+    @page_title = "오늘의 글보기"
   end
 
   def recent
     @posts = Post.where(:is_private => false).order("created_at DESC").limit(10)
+    @page_title = "최신글보기"
   end
   def user
     @users = User.all

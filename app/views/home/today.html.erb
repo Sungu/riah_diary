@@ -3,8 +3,9 @@
     <% @posts.where("created_at >= ?", Time.zone.now.beginning_of_day).where(:is_private => false).order("created_at DESC").each do |post| %>
           <li class="list-group-item list-<%=post.id%>" style="margin-left:20px;margin-right:20px;margin-bottom:20px">
             <a class="recent_post" style="" href="/diary/show/<%=post.id%>"></a>
-            <%= image_tag(post.user.image, size: '50x50', style:'border-radius:3px;') %>
-            <%=(post.title.size>40) ? post.title.first(40)+"..." : post.title %>
+            <%= image_tag(post.user.image, size: '50x50', style:'border-radius:3px;') %>                                   
+            <p style="display:inline;margin-left:10px;"><%= post.user.name %></p>
+            <p style="margin-left:30px;margin-right:30px;display:inline;font-weight:bold;"><%=(post.title.size>40) ? post.title.first(40)+"..." : post.title %></p>
             <table class="table_list" class="table table-hover table-mc-light-blue">
               <tbody>
               <tr>

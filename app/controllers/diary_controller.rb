@@ -10,6 +10,7 @@ class DiaryController < ApplicationController
 
   def recent
     @posts = Post.is_public.order('created_at DESC')
+    @page_title = "최신 글보기"
   end
 
 
