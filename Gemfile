@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'redcarpet'
 gem 'jquery-hotkeys-rails'
 gem "simple_calendar"
 gem 'omniauth-facebook'

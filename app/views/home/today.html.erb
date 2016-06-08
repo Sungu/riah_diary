@@ -10,24 +10,24 @@
               <tbody>
               <tr>
                 <td style="text-align: left;">Plan</td>
-                <td style="text-align:left"><%= simple_format(post.plan) %></td>
+                <td style="text-align:left"><%= markdown(post.plan).html_safe %> %></td>
               <tr>
                 <td style="text-align: left;">Research</td>
-                <td style="text-align:left"><%= simple_format(post.research) %></td>
+                <td style="text-align:left"><%= markdown(post.research).html_safe %></td>
               </tr>
               <tr>
                 <td style="text-align: left;">Act</td>
-                <td style="text-align:left"><%= simple_format(post.act) %></td>
+                <td style="text-align:left"><%= markdown(post.act).html_safe %></td>
               <tr>
                 <td style="text-align: left;">Observe</td>
-                <td style="text-align:left"><%= simple_format(post.observe_thing) %></td>
+                <td style="text-align:left"><%= markdown(post.observe_thing).html_safe %></td>
               </tr>
               <tr>
                 <td style="text-align: left;">Evaluate</td>
-                <td style="text-align:left"><%= simple_format(post.evaluate) %></td>
+                <td style="text-align:left"><%= markdown(post.evaluate).html_safe %></td>
               <tr>
                 <td style="text-align: left;">Reflect</td>
-                <td style="text-align:left"><%= simple_format(post.reflect) %></td>
+                <td style="text-align:left"><%= markdown(post.reflect).html_safe %></td>
               </tr>
               </tbody>
             </table>
