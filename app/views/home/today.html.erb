@@ -31,28 +31,54 @@
               </tr>
               </tbody>
             </table>
+                <div id="comment_box" class="comment-box">
+                <%= render "comments/form2",:@post => post %>
+                 </div>
           </li>
-          <!--요긴 넣는거 좀 더 고민해봐야겠다!-->
-      <!--<div class="comments" style="margin-left: auto; margin-right: auto;">-->
-      <!--  <% @post = post %>-->
-      <!--  <%= render "comments/comments" %>-->
-      <!--</div>-->
+
     <% end %>
+    <button id="comment_button" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--blue" style="position: fixed;right:30px;bottom:30px; z-index: 99">
+      <i class="material-icons mdl-color-text--white" role="presentation">comment</i>
+    </button>
   </ul>
 </main>
 
+
 <script>
-  $('li').click(function() {
+
+  $('.comment-box').click(function (event){
+    event.stopPropagation();
+    return false;
+  });
+
+  $('li').on('click',function(e) {
+    if ($('li').is(':animated')) return false;
+//    alert(e.target.attr("class") +" -- "+ this)
+//    if($(e.target).attr('class') == this.find($(".comment_box")))
+//      return;
 
     num = $(this).index();
     $(this).fadeOut(1000, function () {
       $("#list li:eq(0)").before($("#list li:eq(" + num + ")"));
+
       $(".table_list").css(
           "display","none"
       )
+      $(".comment-box").css(
+          "display","none"
+      )
+
+
       $(this).find(".table_list").css(
         "display","block"
       )
+      $(this).find("#comment_box").css(
+          "display","block"
+      )
+      $("#comment_button").css(
+          "display","block"
+      )
+
       $("#list li:eq(0)").scrollTop(0);
       $(this).fadeIn(1000);
     });

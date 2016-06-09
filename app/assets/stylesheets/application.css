@@ -595,22 +595,16 @@
 /*comment*/
 
 .comments {
-  margin: 2.5rem auto 0;
-  max-width: 60.75rem;
-  padding: 0 1.25rem;
 }
 
 .comment-wrap {
   margin-bottom: 1.25rem;
   display: table;
   width: 100%;
-  min-height: 5.3125rem;
 }
 
 .photo {
-  padding-top: 0.625rem;
   display: table-cell;
-  width: 3.5rem;
 }
 .photo .avatar {
   height: 5rem;
@@ -628,14 +622,6 @@
   border-radius: 0.1875rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
 }
-.comment-block textarea {
-  width: 100%;
-  resize: none;
-}
-
-.comment-text {
-  margin-bottom: 1.25rem;
-}
 
 .bottom-comment {
   color: #acb4c2;
@@ -648,6 +634,7 @@
 
 .comment-actions {
   float: right;
+  padding-right: 8px;
 }
 .comment-actions li {
   display: inline;
