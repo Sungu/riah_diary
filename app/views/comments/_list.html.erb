@@ -1,0 +1,5 @@
+<ul id="comments_list_<%=@post.id%>">
+<% if @post.comments.size > 0 %>
+  <%= render @post.comments %>
+<% end %>
+</ul>

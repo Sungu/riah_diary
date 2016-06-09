@@ -39,6 +39,9 @@
       </table>
     </div>
   </div>
+  <div class="comments" style="margin-left: auto; margin-right: auto;">
+    <%= render "comments/comments" %>
+  </div>
   <div class="text-center" style="margin-bottom: 30px">
     <% if current_user.id == @post.user_id %>
       <%= link_to '수정', "/diary/edit/#{@post.id}", class: 'btn btn-default' %>

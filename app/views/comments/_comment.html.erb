@@ -1,0 +1,17 @@
+<div class="comment-wrap" id="comment_<%=comment.id %>">
+	<div class="photo">
+		<div class="avatar" style="background-image: url('<%= User.find(comment.user_id).image %>')"></div>
+	</div>
+	<div class="comment-block">
+		<p class="comment-text"><%= simple_format(comment.body) %></p>
+		<div class="bottom-comment">
+			<div class="comment-date"><%= time_ago_in_words(comment.created_at) %> ago</div>
+			<ul class="comment-actions">
+        <% if comment.user_id == current_user.id %>
+        	<li><%= link_to "삭제", [comment.post, comment], method: :delete, remote: true, data: { confirm: "Are you sure?" } %></li>
+        	<!--<li><%= link_to "수정","/comment/update/#{comment.id}" %></li>-->
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

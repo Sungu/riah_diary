@@ -1,0 +1,8 @@
+<div class="comment-wrap" >
+	<div class="comment-block text-center" id="comments_form_<%=@post.id%>">
+	  <%= form_tag(post_comments_path(@post), method: "post", remote: true) do %>
+			<textarea style="border-color:white;" name="comment[body]" cols="30" rows="3" placeholder="Add comment..."></textarea>
+			<button class="fa fa-paper-plane" href="#" role="button" style="border: none; background: none;"></button>
+		<% end %>
+	</div>
+</div>
