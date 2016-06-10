@@ -94,7 +94,7 @@
 
     num = $(this).index();
     $(this).fadeOut(1000, function () {
-      $("#list li:eq(0)").before($("#list li:eq(" + num + ")"));
+      $(".list-group-item:eq(0)").before($(".list-group-item:eq(" + num + ")"));
 
       $(".table_list").css(
           "display","none"
