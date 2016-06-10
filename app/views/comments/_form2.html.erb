@@ -1,0 +1,6 @@
+<div class="text-area-size" style="position:fixed; bottom:5%; width: 500px; height: 300px; z-index: 9999" >
+    <%= form_tag(post_comments_path(@post), method: "post", remote: true) do %>
+        <textarea style="border-color:white;width: 100%; hegith: 100%;" name="comment[body]" placeholder="Add comment..."></textarea>
+        <button class="fa fa-paper-plane fa-lg" href="#" role="button" style="border: none; background-color: orange;color: white;width: 56px;height: 56px; border-radius: 50%; position:fixed; right:30px;bottom:30px;"></button>
+    <% end %>
+</div>
