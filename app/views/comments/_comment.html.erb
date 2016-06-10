@@ -1,6 +1,7 @@
 <div class="comment-wrap" id="comment_<%=comment.id %>">
 	<div class="photo">
 		<div class="avatar" style="background-image: url('<%= User.find(comment.user_id).image %>')"></div>
+		<div style="margin-left:4px;font-weight:bold"><%= User.find(comment.user_id).name %></div>
 	</div>
 	<div class="comment-block">
 		<p class="comment-text"><%= simple_format(comment.body) %></p>
