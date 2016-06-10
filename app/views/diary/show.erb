@@ -39,14 +39,14 @@
       </table>
     </div>
   </div>
-  <div class="comments" style="margin-left: auto; margin-right: auto;">
-    <%= render "comments/comments" %>
-  </div>
   <div class="text-center" style="margin-bottom: 30px">
     <% if current_user.id == @post.user_id %>
-      <%= link_to '수정', "/diary/edit/#{@post.id}", class: 'btn btn-default' %>
-      <%= link_to '삭제', "/diary/delete/#{@post.id}", data: {confirm: "삭제?" }, class: 'btn btn-default' %>
+        <%= link_to '수정', "/diary/edit/#{@post.id}", class: 'btn btn-default' %>
+        <%= link_to '삭제', "/diary/delete/#{@post.id}", data: {confirm: "삭제?" }, class: 'btn btn-default' %>
     <% end %>
     <%= link_to   '뒤로가기', :back , class: 'btn btn-default' %>
+  </div>
+  <div class="comments" style="margin-left: auto; margin-right: auto;">
+    <%= render "comments/comments" %>
   </div>
 </main>
