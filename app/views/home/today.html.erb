@@ -68,18 +68,18 @@
         "display","block"
     )
     x.find(".comment-wrap").css({
-        "width":$(window).width()-100,
+        "width":$(window).width(),
       "bottom":"-160px"}
     )
 
     x.css("display","block")
     x.find(".comment-wrap").animate({
       bottom:"+=170"
-    },800,function(){
+    },500,function(){
 
     })
   })
-  $('.comment-box textarea').click(function (event){
+  $('.comment-box').click(function (event){
     event.stopPropagation();
     return false;
   });
