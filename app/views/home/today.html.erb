@@ -37,7 +37,7 @@
           </li>
 
     <% end %>
-    <button id="comment_button" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--blue" style="position: fixed;right:30px;bottom:30px; z-index: 99">
+    <button id="comment_button" class="comment-button mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--blue" style="position: fixed;right:30px;bottom:30px; z-index: 99">
       <i class="material-icons mdl-color-text--white" role="presentation">comment</i>
     </button>
   </ul>
@@ -45,21 +45,56 @@
 
 
 <script>
+  $(".comment-button").css(
+      "display","none"
+  )
+  $(".comment-box").css(
+      "display","none"
+  )
+  $(".submit-button").css(
+      "display","none"
+  )
 
+
+  $(".submit-button").click(function(){
+    $(".submit-button").css(
+        "display","none"
+    )
+  });
+
+//  Comment Button 누르면
+  $(".comment-button").click(function(){
+    $(".submit-button").css(
+        "display","block"
+    )
+    x.find(".comment-wrap").css({
+        "width":$(window).width(),
+      "bottom":"-160px"}
+    )
+
+    x.css("display","block")
+    x.find(".comment-wrap").animate({
+      bottom:"+=170"
+    },500,function(){
+
+    })
+  })
   $('.comment-box').click(function (event){
     event.stopPropagation();
     return false;
   });
 
-  $('li').on('click',function(e) {
-    if ($('li').is(':animated')) return false;
+  var x;
+
+  $('.list-group-item').on('click',function(e) {
+    if ($('.list-group-item').is(':animated')) return false;
 //    alert(e.target.attr("class") +" -- "+ this)
 //    if($(e.target).attr('class') == this.find($(".comment_box")))
 //      return;
 
     num = $(this).index();
     $(this).fadeOut(1000, function () {
-      $("#list li:eq(0)").before($("#list li:eq(" + num + ")"));
+      $(".list-group-item:eq(0)").before($(".list-group-item:eq(" + num + ")"));
 
       $(".table_list").css(
           "display","none"
@@ -72,9 +107,9 @@
       $(this).find(".table_list").css(
         "display","block"
       )
-      $(this).find("#comment_box").css(
-          "display","block"
-      )
+
+      x = $(this).find("#comment_box")
+
       $("#comment_button").css(
           "display","block"
       )

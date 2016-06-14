@@ -1,14 +1,18 @@
 <div class="simple-calendar"style="margin-top: 30px; margin-left: 30px;margin-right:30px;margin-bottom:30px;">
-  <%= link_to "Previous", calendar.url_for_previous_view %>
-  <%= I18n.t("date.month_names")[start_date.month] %> <%= start_date.year %>
-  <%= link_to "Next", calendar.url_for_next_view %>
+  <%= link_to "<", calendar.url_for_previous_view %>
+  <b style="font-size: 2em"><%= start_date.month %>월</b>
+  <%= link_to ">", calendar.url_for_next_view %>
 
   <table class="table table-striped">
     <thead>
       <tr>
-        <% date_range.slice(0, 7).each do |day| %>
-          <th><%= I18n.t("date.abbr_day_names")[day.wday] %></th>
-        <% end %>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th>토</th>
+          <th>일</th>
       </tr>
     </thead>
 
@@ -23,12 +27,12 @@
                 <% end %>
               <% else %>
                 <% if start_date.month == day.month %>
-                  <%= day.month %>월 <%= day.day %>일
+                  <%= day.day %>일
                 
                   <% @post.each do |a| %>
                     <% if "#{a.created_at.year}-#{a.created_at.month}-#{a.created_at.day}" == "#{day.year}-#{day.month}-#{day.day}" %>
                       <br>
-                      <a href="/diary/show/<%= a.id %>" class='btn btn-default'>Diary</a>
+                      <a href="/diary/show/<%= a.id %>" class='btn btn-default'>D</a>
                     <% end %>
                   <% end %>
                 <% end %>
