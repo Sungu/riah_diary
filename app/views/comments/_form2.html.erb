@@ -1,0 +1,8 @@
+<div class="comment-wrap" style="position:fixed; bottom:5px;z-index: 9999; width: 300px; height: 150px;">
+  <div class="comment-block text-center" id="comments_form_<%=@post.id%>">
+    <%= form_tag(post_comments_path(@post), method: "post", remote: true,data: {confirm: @post.user.name + " 씨에게 커맨트를 남기시겠습니까?" }) do %>
+        <textarea class="boxsizingBorder" style="border-color:white;width:100%;" rows="4" name="comment[body]" placeholder="Add comment..."></textarea>
+        <button class="fa fa-paper-plane fa-lg submit-button" href="#" role="button" style="border: none; background-color: orange;color: white;width: 56px;height: 56px; border-radius: 50%; position:fixed; right:30px;bottom:30px; z-index: 9999"></button>
+    <% end %>
+  </div>
+</div>
