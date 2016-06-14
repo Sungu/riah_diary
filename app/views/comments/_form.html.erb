@@ -1,4 +1,4 @@
-<div class="comment-wrap" >
+<div class="comment-wrap container" >
 	<div class="comment-block text-center" id="comments_form_<%=@post.id%>">
 	  <%= form_tag(post_comments_path(@post), method: "post", remote: true) do %>
 			<textarea style="border-color:white;width: 100%; hegith: 100%;" name="comment[body]" placeholder="Add comment..."></textarea>

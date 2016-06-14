@@ -1,23 +1,21 @@
-<div class="comment-wrap" id="comment_<%=comment.id %>">
-	<div class="comment-block">
-	<div class="photo">
-		<div class="avatar" style="background-image: url('<%= User.find(comment.user_id).image %>')"></div>
-		<div style="margin-left:4px;font-weight:bold"><%= User.find(comment.user_id).name %></div>
-	</div>
-	<div class="avatar_name">
-		<a href=""><%= User.find(comment.user_id).name %></a>
-	</div>
-
-
-<%= simple_format(comment.body) %>
-<div class="bottom-comment">
-	<div class="comment-date"><%= time_ago_in_words(comment.created_at) %> ago</div>
-	<ul class="comment-actions">
-		<% if comment.user_id == current_user.id %>
-				<li><%= link_to "삭제", [comment.post, comment], method: :delete, remote: true, data: { confirm: "Are you sure?" } %></li>
-				<!--<li><%= link_to "수정","/comment/update/#{comment.id}" %></li>-->
-		<% end %>
-	</ul>
-</div>
+<div class="comment-wrap container" id="comment_<%=comment.id %>">
+	<div class="comment-block row">
+		<div class="photo col-sm-2">
+			<div class="avatar" style="background-image: url('<%= User.find(comment.user_id).image %>')"></div>
+			<div style="margin-left:4px;font-weight:bold"><%= User.find(comment.user_id).name %></div>
+		</div>
+		<div class="col-sm-10">
+			<%= simple_format(comment.body) %>
+		</div>
+	
+		<div class="bottom-comment col-sm-12">
+			<div class="comment-date"><%= time_ago_in_words(comment.created_at) %> ago</div>
+			<ul class="comment-actions">
+				<% if comment.user_id == current_user.id %>
+						<li><%= link_to "삭제", [comment.post, comment], method: :delete, remote: true, data: { confirm: "Are you sure?" } %></li>
+						<!--<li><%= link_to "수정","/comment/update/#{comment.id}" %></li>-->
+				<% end %>
+			</ul>
+		</div>
 	</div>
 </div>
