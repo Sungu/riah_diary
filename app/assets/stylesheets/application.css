@@ -71,7 +71,7 @@
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-@media screen and (max-width: 3000px) {
+@media screen and (max-width: 740px) {
   .table-responsive-vertical > .table {
     margin-bottom: 0;
     background-color: transparent;
