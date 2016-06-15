@@ -1,4 +1,4 @@
-<div class="comment-wrap" style="height: 150px;width:100%;padding:8px;z-index: 9999">
+<div class="comment-wrap" style="position: fixed; height: 150px; padding:8px; z-index: 9999">
   <div class="comment-block text-center" id="comments_form_<%=@post.id%>">
     <%= form_tag(post_comments_path(@post), method: "post", remote: true,data: {confirm: @post.user.name + " 씨에게 커맨트를 남기시겠습니까?" }) do %>
         <textarea class="boxsizingBorder" style="border-color:white;width:100%;" rows="4" name="comment[body]" placeholder="Add comment..."></textarea>

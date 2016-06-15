@@ -7,10 +7,14 @@
             <p style="display:inline;margin-left:10px;"><%= post.user.name %></p>
             <p style="margin-left:30px;margin-right:30px;display:inline;font-weight:bold;"><%=(post.title.size>40) ? post.title.first(40)+"..." : post.title %></p>
             <table class="table_list" class="table table-hover table-mc-light-blue">
+              <colgroup>
+                <col style="width:10%">
+                <col style="width:90%">
+              </colgroup>
               <tbody>
               <tr>
-                <td style="text-align: left;">Plan</td>
-                <td style="text-align:left"><%= markdown(post.plan).html_safe %></td>
+                <td class="td_left" style="text-align: left;">Plan</td>
+                <td class="td_right" style="text-align:left"><%= markdown(post.plan).html_safe %></td>
               <tr>
                 <td style="text-align: left;">Research</td>
                 <td style="text-align:left"><%= markdown(post.research).html_safe %></td>
@@ -67,12 +71,13 @@
         "display","block"
     )
     x.find(".comment-wrap").css({
-      "bottom":"-160px"}
+      "bottom":"-160px",
+    "width":$(window).width()-100}
     )
 
     x.css("display","block")
     x.find(".comment-wrap").animate({
-      bottom:"+=170"
+      bottom:"+=170",
     },500,function(){
 
     })
