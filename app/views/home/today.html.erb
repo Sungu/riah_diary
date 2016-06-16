@@ -35,9 +35,11 @@
               </tr>
               </tbody>
             </table>
+            
             <div id="comment_box" class="comment-box">
               <%= render "comments/form2", :@post => post %>
             </div>
+            
           </li>
     <% end %>
     <button id="comment_button" class="comment-button mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--blue" style="position: fixed;right:30px;bottom:30px; z-index: 99">
@@ -71,8 +73,7 @@
         "display","block"
     )
     x.find(".comment-wrap").css({
-      "bottom":"-160px",
-    "width":$(window).width()-100}
+      "bottom":"-160px"}
     )
 
     x.css("display","block")
