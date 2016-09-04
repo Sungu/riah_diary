@@ -1,7 +1,7 @@
 module ApplicationHelper
   def render_title
     return @title if defined?(@title)
-    "Disign Diary"
+    "Riah Diary"
   end
   
   def render_page
